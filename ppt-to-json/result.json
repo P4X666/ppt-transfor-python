@@ -1,0 +1,528 @@
+{
+  "meta": {
+    "source_file": "I:\\wefor\\ai\\knowledge\\ppt\\UA模版-封面目录结尾.pptx",
+    "filename": "UA模版-封面目录结尾.pptx",
+    "conversion_status": "SUCCESS",
+    "slide_count": 3
+  },
+  "headings": [],
+  "slides": [
+    {
+      "slide_index": 1,
+      "elements": [
+        {
+          "type": "paragraph",
+          "text": "INSERT TITLE TEXT",
+          "label": "text",
+          "paragraphs": [
+            {
+              "runs": [
+                {
+                  "text": "INSERT TITLE TEXT",
+                  "style": {
+                    "font_name": "Neue Plak Regular",
+                    "font_size_pt": 12.0,
+                    "font_color": "#FFFFFF"
+                  }
+                }
+              ],
+              "style": {
+                "alignment": "ctr"
+              }
+            }
+          ],
+          "shape_style": {
+            "border_width_pt": 1.0,
+            "left": 5458561,
+            "top": 6034186,
+            "width": 1274878,
+            "height": 320041
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "INSERT TITLE",
+          "label": "text",
+          "paragraphs": [
+            {
+              "runs": [
+                {
+                  "text": "INSERT TITLE",
+                  "style": {
+                    "font_name": "Neue Plak Compressed Bold",
+                    "font_size_pt": 61.0,
+                    "font_color": "#FFFFFF"
+                  }
+                }
+              ],
+              "style": {
+                "alignment": "ctr"
+              }
+            }
+          ],
+          "shape_style": {
+            "border_width_pt": 1.0,
+            "left": 3868980,
+            "top": 3962130,
+            "width": 4454040,
+            "height": 1233425
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_index": 0,
+          "filename": "img_b5fa2df3d875c2c1.png",
+          "extracted_path": "I:\\wefor\\ai\\knowledge\\ppt\\images\\img_b5fa2df3d875c2c1.png",
+          "source": "master:",
+          "shape_name": "Image",
+          "size_bytes": 697868,
+          "width_px": 8371,
+          "height_px": 4707
+        },
+        {
+          "image_index": 1,
+          "filename": "img_5c02e6c4a1b80c64.png",
+          "extracted_path": "I:\\wefor\\ai\\knowledge\\ppt\\images\\img_5c02e6c4a1b80c64.png",
+          "source": "layout:Logo Intro B: Black",
+          "shape_name": "Image",
+          "size_bytes": 42406,
+          "width_px": 1018,
+          "height_px": 600
+        }
+      ],
+      "background_color": "#000000"
+    },
+    {
+      "slide_index": 2,
+      "elements": [
+        {
+          "type": "table",
+          "html": "<table>\n  <tr>\n    <th>INSERT TEXT</th>\n    <th></th>\n    <th>Insert Text</th>\n  </tr>\n  <tr>\n    <td>INSERT TEXT</td>\n    <td></td>\n    <td>Insert Text</td>\n  </tr>\n  <tr>\n    <td>INSERT TEXT</td>\n    <td></td>\n    <td>Insert Text</td>\n  </tr>\n  <tr>\n    <td>INSERT TEXT</td>\n    <td></td>\n    <td>Insert Text</td>\n  </tr>\n  <tr>\n    <td>INSERT TEXT</td>\n    <td></td>\n    <td>Insert Text</td>\n  </tr>\n  <tr>\n    <td>INSERT TEXT</td>\n    <td></td>\n    <td>Insert Text</td>\n  </tr>\n  <tr>\n    <td>INSERT TEXT</td>\n    <td></td>\n    <td>Insert Text</td>\n  </tr>\n  <tr>\n    <td>INSERT TEXT</td>\n    <td></td>\n    <td>Insert Text</td>\n  </tr>\n</table>",
+          "table_type": "simple_table",
+          "shape_style": {
+            "left": 5191313,
+            "top": 502821,
+            "width": 6799262,
+            "height": 5977016
+          },
+          "cell_styles": [
+            [
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              },
+              {},
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              }
+            ],
+            [
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              },
+              {},
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              }
+            ],
+            [
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              },
+              {},
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              }
+            ],
+            [
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              },
+              {},
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              }
+            ],
+            [
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              },
+              {},
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              }
+            ],
+            [
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              },
+              {},
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              }
+            ],
+            [
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              },
+              {},
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              }
+            ],
+            [
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              },
+              {},
+              {
+                "background_color": "#000000",
+                "font_style": {
+                  "font_size_pt": 18.0,
+                  "font_color": "#000000"
+                }
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Insert agenda title Text",
+          "label": "text",
+          "paragraphs": [
+            {
+              "runs": [
+                {
+                  "text": "Insert agenda",
+                  "style": {
+                    "font_name": "Neue Plak Compressed Bold",
+                    "font_size_pt": 66.0,
+                    "font_color": "#000000"
+                  }
+                },
+                {
+                  "text": "title Text",
+                  "style": {
+                    "font_name": "Neue Plak Compressed Bold",
+                    "font_size_pt": 66.0,
+                    "font_color": "#000000"
+                  }
+                }
+              ],
+              "style": {}
+            }
+          ],
+          "shape_style": {
+            "border_width_pt": 1.0,
+            "left": 383970,
+            "top": 2340261,
+            "width": 3412391,
+            "height": 2072641
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_index": 0,
+          "filename": "img_b5fa2df3d875c2c1.png",
+          "extracted_path": "I:\\wefor\\ai\\knowledge\\ppt\\images\\img_b5fa2df3d875c2c1.png",
+          "source": "master:",
+          "shape_name": "Image",
+          "size_bytes": 697868,
+          "width_px": 8371,
+          "height_px": 4707
+        }
+      ],
+      "background_color": "#000000"
+    }
+  ],
+  "texts_flat": [
+    {
+      "text": "INSERT TITLE TEXT",
+      "type": "paragraph",
+      "level": 2,
+      "label": "text",
+      "slide_index": 1
+    },
+    {
+      "text": "INSERT TITLE",
+      "type": "paragraph",
+      "level": 2,
+      "label": "text",
+      "slide_index": 1
+    },
+    {
+      "text": "Insert agenda title Text",
+      "type": "paragraph",
+      "level": 2,
+      "label": "title",
+      "slide_index": 2
+    }
+  ],
+  "tables": [
+    {
+      "slide_index": 2,
+      "html": "<table>\n  <tr>\n    <th>INSERT TEXT</th>\n    <th></th>\n    <th>Insert Text</th>\n  </tr>\n  <tr>\n    <td>INSERT TEXT</td>\n    <td></td>\n    <td>Insert Text</td>\n  </tr>\n  <tr>\n    <td>INSERT TEXT</td>\n    <td></td>\n    <td>Insert Text</td>\n  </tr>\n  <tr>\n    <td>INSERT TEXT</td>\n    <td></td>\n    <td>Insert Text</td>\n  </tr>\n  <tr>\n    <td>INSERT TEXT</td>\n    <td></td>\n    <td>Insert Text</td>\n  </tr>\n  <tr>\n    <td>INSERT TEXT</td>\n    <td></td>\n    <td>Insert Text</td>\n  </tr>\n  <tr>\n    <td>INSERT TEXT</td>\n    <td></td>\n    <td>Insert Text</td>\n  </tr>\n  <tr>\n    <td>INSERT TEXT</td>\n    <td></td>\n    <td>Insert Text</td>\n  </tr>\n</table>",
+      "table_type": "simple_table",
+      "shape_style": {
+        "left": 5191313,
+        "top": 502821,
+        "width": 6799262,
+        "height": 5977016
+      },
+      "cell_styles": [
+        [
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          },
+          {},
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          }
+        ],
+        [
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          },
+          {},
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          }
+        ],
+        [
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          },
+          {},
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          }
+        ],
+        [
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          },
+          {},
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          }
+        ],
+        [
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          },
+          {},
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          }
+        ],
+        [
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          },
+          {},
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          }
+        ],
+        [
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          },
+          {},
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          }
+        ],
+        [
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          },
+          {},
+          {
+            "background_color": "#000000",
+            "font_style": {
+              "font_size_pt": 18.0,
+              "font_color": "#000000"
+            }
+          }
+        ]
+      ]
+    }
+  ],
+  "images": [
+    {
+      "image_index": 0,
+      "filename": "img_b5fa2df3d875c2c1.png",
+      "extracted_path": "I:\\wefor\\ai\\knowledge\\ppt\\images\\img_b5fa2df3d875c2c1.png",
+      "source": "master:",
+      "shape_name": "Image",
+      "size_bytes": 697868,
+      "width_px": 8371,
+      "height_px": 4707
+    },
+    {
+      "image_index": 1,
+      "filename": "img_5c02e6c4a1b80c64.png",
+      "extracted_path": "I:\\wefor\\ai\\knowledge\\ppt\\images\\img_5c02e6c4a1b80c64.png",
+      "source": "layout:Logo Intro B: Black",
+      "shape_name": "Image",
+      "size_bytes": 42406,
+      "width_px": 1018,
+      "height_px": 600
+    },
+    {
+      "image_index": 2,
+      "filename": "img_fc058014f2a283a0.png",
+      "extracted_path": "I:\\wefor\\ai\\knowledge\\ppt\\images\\img_fc058014f2a283a0.png",
+      "source": "layout:Stacked Logo: Grey",
+      "shape_name": "Picture 2",
+      "size_bytes": 10577,
+      "width_px": 760,
+      "height_px": 572
+    },
+    {
+      "image_index": 3,
+      "filename": "img_531fbc1d3b62ae22.png",
+      "extracted_path": "I:\\wefor\\ai\\knowledge\\ppt\\images\\img_531fbc1d3b62ae22.png",
+      "source": "layout:Logo White",
+      "shape_name": "Picture 2",
+      "size_bytes": 23591,
+      "width_px": 2249,
+      "height_px": 299
+    }
+  ],
+  "slide_image_map": {
+    "1": [
+      0,
+      1
+    ],
+    "2": [
+      0
+    ],
+    "3": [
+      0,
+      3
+    ]
+  }
+}
