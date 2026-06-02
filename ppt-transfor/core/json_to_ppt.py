@@ -10,7 +10,7 @@ import base64
 
 from pptx import Presentation
 from pptx.util import Inches, Pt, Emu
-from pptx.enum.shapes import MSO_SHAPE, MSO_SHAPE_TYPE
+from pptx.enum.shapes import MSO_SHAPE, MSO_SHAPE_TYPE, MSO_CONNECTOR_TYPE
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR, MSO_AUTO_SIZE
 from pptx.dml.color import RGBColor
 from pptx.enum.dml import MSO_LINE_DASH_STYLE
@@ -131,6 +131,27 @@ class JsonToPPTConverter:
         layout_shapes = [s for s in shapes if s.get("source") == "layout"]
         slide_shapes = [s for s in shapes if not s.get("source")]
         
+        # 检测slide中已有的placeholder类型，用于过滤layout中的重复placeholder
+        slide_placeholder_types = set()
+        for s in slide_shapes:
+            if s.get("element_type") == "placeholder":
+                pf = s.get("placeholder_format", {})
+                ptype = str(pf.get("type", ""))
+                slide_placeholder_types.add(ptype)
+        
+        # 默认占位符文本模式，这些文本是layout的引导文字，不应出现在最终PPT中
+        default_placeholder_patterns = [
+            "click to insert", "click to add", "click to enter",
+            "click to edit", "click to type", "click icon to add"
+        ]
+        
+        def _is_default_placeholder_text(text):
+            """判断文本是否为默认占位符引导文字"""
+            if not text:
+                return False
+            text_lower = text.strip().lower()
+            return any(pattern in text_lower for pattern in default_placeholder_patterns)
+        
         plugin_context = {
             "slide_index": slide_idx,
             "slide_count": len(prs.slides)
@@ -140,6 +161,19 @@ class JsonToPPTConverter:
             if shape_plugins.should_include_shape(shape_data, slide_data, plugin_context):
                 self._add_shape(slide, shape_data, default_font_color, light_areas)
         for shape_data in layout_shapes:
+            if shape_data.get("element_type") == "placeholder":
+                pf = shape_data.get("placeholder_format", {})
+                ptype = str(pf.get("type", ""))
+                # 跳过layout中与slide同类型的placeholder
+                if ptype in slide_placeholder_types:
+                    continue
+                # 跳过包含默认占位符引导文字的layout placeholder
+                # 这些文字（如"Click to Insert title"）是编辑界面的引导提示，
+                # 不应出现在最终PPT中
+                tf = shape_data.get("text_frame", {})
+                text = tf.get("text", "") if tf else ""
+                if _is_default_placeholder_text(text):
+                    continue
             self._add_shape(slide, shape_data, default_font_color, light_areas)
         for shape_data in slide_shapes:
             self._add_shape(slide, shape_data, default_font_color, light_areas)
@@ -511,14 +545,23 @@ class JsonToPPTConverter:
         end = shape_data.get("end", {})
         
         if begin and end:
+            # 使用add_connector添加连接线，需要MSO_CONNECTOR_TYPE枚举
             shape = slide.shapes.add_connector(
-                MSO_SHAPE.LINE_STRAIGHT_CONNECTOR_1,
+                MSO_CONNECTOR_TYPE.STRAIGHT,
                 begin.get("x", 0), begin.get("y", 0),
                 end.get("x", 0), end.get("y", 0)
             )
         else:
+            # 没有begin/end坐标时，从位置信息推断起止点
             left, top, width, height = self._get_position(shape_data)
-            shape = slide.shapes.add_shape(MSO_SHAPE.LINE_STRAIGHT_CONNECTOR_1, left, top, width, height)
+            begin_x = left
+            begin_y = top
+            end_x = left + width
+            end_y = top + height
+            shape = slide.shapes.add_connector(
+                MSO_CONNECTOR_TYPE.STRAIGHT,
+                begin_x, begin_y, end_x, end_y
+            )
         
         line_data = shape_data.get("line")
         if line_data:
@@ -883,8 +926,23 @@ class JsonToPPTConverter:
         if not shape_type_str:
             return MSO_SHAPE.RECTANGLE
         
-        # 提取枚举名称
+        # 提取枚举名称：支持 "OVAL (9)" 和 "MSO_SHAPE.OVAL (9)" 等格式
         enum_name = shape_type_str.split('.')[-1]
+        # 去除括号及括号内的内容，如 "OVAL (9)" → "OVAL"
+        enum_name = enum_name.split('(')[0].strip()
+        
+        if not enum_name:
+            return MSO_SHAPE.RECTANGLE
+        
+        # "line"类型不在MSO_SHAPE枚举中，线条应通过element_type: "line"路由到_add_line，
+        # 此处作为保护性处理，返回矩形（实际不应走到这里）
+        if enum_name.lower() == 'line':
+            logger.warning(f"线条形状通过_parse_shape_type处理，应通过element_type路由")
+            return MSO_SHAPE.RECTANGLE
+        
+        # "unknown"类型无法确定具体形状，返回矩形作为兜底
+        if enum_name.lower() == 'unknown':
+            return MSO_SHAPE.RECTANGLE
         
         try:
             return MSO_SHAPE[enum_name]

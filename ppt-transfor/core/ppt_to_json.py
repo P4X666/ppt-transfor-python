@@ -515,8 +515,53 @@ class PPTToJsonConverter:
         """提取自动形状信息"""
         result = {"element_type": "auto_shape"}
 
-        if hasattr(shape, 'auto_shape_type'):
-            result["auto_shape_type"] = str(shape.auto_shape_type)
+        # 标记是否为线条形状（prstGeom prst="line"的auto_shape需要重新分类为line）
+        is_line_shape = False
+
+        try:
+            auto_shape_type_val = shape.auto_shape_type
+            result["auto_shape_type"] = str(auto_shape_type_val)
+        except Exception:
+            # 某些auto_shape_type值（如'line'）在MSO_AUTO_SHAPE_TYPE中没有XML映射，
+            # hasattr在Python 3.12+不再抑制ValueError，因此需要try/except
+            # 尝试通过XML直接获取prstGeom属性值
+            try:
+                sp = shape._element
+                # 使用'.//'搜索所有后代元素，因为prstGeom是spPr的子元素而非sp的直接子元素
+                prstGeom = sp.find('.//' + qn('a:prstGeom'))
+                if prstGeom is not None:
+                    prst_val = prstGeom.get('prst', 'unknown')
+                    result["auto_shape_type"] = prst_val
+                    # 当prstGeom的prst属性为"line"时，该形状实际是线条，需要重新分类
+                    if prst_val == 'line':
+                        is_line_shape = True
+                else:
+                    result["auto_shape_type"] = "unknown"
+                    # 没有prstGeom时，通过形状名称和尺寸判断是否为线条
+                    shape_name = shape.name.lower() if hasattr(shape, 'name') else ''
+                    if ('line' in shape_name or 'connector' in shape_name) and (shape.width <= 2 or shape.height <= 2):
+                        is_line_shape = True
+            except Exception:
+                result["auto_shape_type"] = "unknown"
+                # 异常时也尝试通过名称和尺寸判断
+                try:
+                    shape_name = shape.name.lower() if hasattr(shape, 'name') else ''
+                    if ('line' in shape_name or 'connector' in shape_name) and (shape.width <= 2 or shape.height <= 2):
+                        is_line_shape = True
+                except Exception:
+                    pass
+
+        # 线条形状重新分类为element_type: "line"，并提取begin/end坐标
+        if is_line_shape:
+            result["element_type"] = "line"
+            # 从位置信息计算线条的起止坐标
+            # 水平线：height≈0，垂直线：width≈0
+            begin_x = shape.left
+            begin_y = shape.top
+            end_x = shape.left + shape.width
+            end_y = shape.top + shape.height
+            result["begin"] = {"x": begin_x, "y": begin_y}
+            result["end"] = {"x": end_x, "y": end_y}
 
         if hasattr(shape, 'text_frame') and shape.text_frame.text:
             result["text_frame"] = self._extract_text_frame_data(shape.text_frame)
@@ -536,8 +581,14 @@ class PPTToJsonConverter:
         if hasattr(shape, 'line'):
             result["line"] = self._extract_line_format(shape.line)
 
-        if hasattr(shape, 'adjustments'):
-            result["adjustments"] = [float(adj) for adj in shape.adjustments]
+        # adjustments属性在prstGeom为'line'等未映射类型时会抛出ValueError，
+        # Python 3.12+的hasattr不再抑制ValueError，因此需要try/except
+        # 线条形状不需要adjustments
+        if not is_line_shape:
+            try:
+                result["adjustments"] = [float(adj) for adj in shape.adjustments]
+            except Exception:
+                pass
 
         return result
     
